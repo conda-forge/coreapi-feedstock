@@ -18,11 +18,12 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python ${{ python_min }}.*
+    - setuptools
   run:
+    - python >=${{ python_min }}
     - coreschema
     - itypes
-    - python
     - requests
     - uritemplate
 
@@ -31,8 +32,8 @@ tests:
       imports:
         - coreapi
       pip_check: true
-
       python_version: ${{ python_min }}.*
+      
 about:
   summary: Python client library for Core API.
   license: BSD-3-Clause
